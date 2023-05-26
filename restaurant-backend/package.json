@@ -1,0 +1,33 @@
+{
+  "name": "restaurant-backend",
+  "version": "1.0.0",
+  "description": "Backend services to solve test pipedreams",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfgonzalez10/pipedreams-test.git"
+  },
+  "keywords": [
+    "pipedreams"
+  ],
+  "author": "Nicolas Gonzalez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nfgonzalez10/pipedreams-test/issues"
+  },
+  "homepage": "https://github.com/nfgonzalez10/pipedreams-test#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "fastify": "^4.17.0",
+    "mongodb": "^5.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.41.0",
+    "jest": "^29.5.0",
+    "pino-pretty": "^10.0.0"
+  }
+}
