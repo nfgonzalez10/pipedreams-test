@@ -1,0 +1,33 @@
+version: "3.3"
+services:
+  core:
+    depends_on:
+      - mongo
+    build: ./restaurant-backend
+    restart: always
+    ports:
+      - 2023:2023
+    expose:
+      - 2023
+    networks:
+      - pipe
+    environment:
+      - CONNECTION_STRING=mongodb://mongo:27017
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    networks:
+      - pipe
+  react:
+    build: ./restaurant-frontend
+    ports:
+      - 3000:80
+    depends_on:
+      - core
+    networks:
+      - pipe
+
+networks:
+  pipe:

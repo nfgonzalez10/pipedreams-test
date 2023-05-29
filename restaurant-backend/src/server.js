@@ -29,15 +29,25 @@ const startServer = ({ staffService }) => {
   server(
     { logger: { level: "info", transport: { target: "pino-pretty" } } },
     { staffService }
-  ).then((server) => {
-    server.listen({ port: process.env.PORT || 2023 }, (err, address) => {
-      if (err) {
-        server.log.error(err);
-        process.exit(1);
-      }
-      console.log("🚀 ~ file: server.js:4 ~ server.listen ~ address:", address);
+  )
+    .then((server) => {
+      server.listen(
+        { port: process.env.PORT || 2023, host: "0.0.0.0" },
+        (err, address) => {
+          if (err) {
+            server.log.error(err);
+            process.exit(1);
+          }
+          console.log(
+            "🚀 ~ file: server.js:4 ~ server.listen ~ address:",
+            address
+          );
+        }
+      );
+    })
+    .catch((error) => {
+      console.log("🚀 ~ file: server.js:41 ~ ).then ~ error:", error);
     });
-  });
 };
 
 start();

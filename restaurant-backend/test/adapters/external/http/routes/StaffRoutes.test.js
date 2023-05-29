@@ -38,7 +38,7 @@ describe("Staff routes", () => {
         thursday: ["Albert", "Samuel", "David", "Louis", "Joe", "Charlie"],
         friday: ["Clarence", "Richard", "Andrew", "Daniel", "Ernest"],
       }),
-      staff: STAFF,
+      getStaff: jest.fn().mockResolvedValue(STAFF),
     };
 
     // Register the mockUserService instead of the actual userService

@@ -4,18 +4,19 @@ class StaffService {
   constructor(staffRepository) {
     this.staffRepository = staffRepository;
   }
-  get staff() {
-    return this.staffRepository.getStaff();
+  async getStaff() {
+    const { cooks, waiters } = await this.staffRepository.getStaff();
+    return { cooks, waiters };
   }
   #formatDay(day) {
     return String(day).toLowerCase();
   }
   async getTypeOfStaff(type = "cookers") {
-    const staff = await this.staff;
+    const staff = await this.getStaff();
     if (!staff) {
       throw new Error("Staff is empty");
     }
-    return this.staff[type];
+    return staff[type];
   }
   get cookers() {
     return this.getTypeOfStaff("cookers");

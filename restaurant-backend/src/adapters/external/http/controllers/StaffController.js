@@ -14,17 +14,15 @@ class StaffController {
 
   async getStaff(_request, reply) {
     try {
-      const currentStaff = await this.staffService.staff;
+      const currentStaff = await this.staffService.getStaff();
       if (!currentStaff) {
         throw new Error("Staff is empty");
       }
-      console.log(currentStaff)
       return reply.send(currentStaff);
     } catch (error) {
       return reply.code(404).send({ error });
     }
   }
-
 }
 
 module.exports = StaffController;

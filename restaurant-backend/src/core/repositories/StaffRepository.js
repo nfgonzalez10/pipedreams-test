@@ -1,17 +1,13 @@
 class StaffRepository {
   constructor(database) {
     this.database = database;
-    console.log(
-      "🚀 ~ file: StaffRepository.js:4 ~ StaffRepository ~ constructor ~ database:",
-      database
-    );
   }
   get collection() {
     return this.database.collection("staff");
   }
 
   getStaff() {
-    return this.collection.find();
+    return this.collection.findOne();
   }
 
   deleteAll() {
